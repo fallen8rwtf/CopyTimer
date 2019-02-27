@@ -6,9 +6,6 @@ namespace CopyTimer
 {
     class Program
     {
-        //public static string srcPath = ".\\src";
-        //public static string dstPath = ".\\dst";
-
         static void Main(string[] args)
         {
             if (args.Length == 0)
@@ -39,7 +36,6 @@ namespace CopyTimer
 
                 foreach (string file in Dir)
                 {
-
                     //Get size of the file
                     FileInfo f = new FileInfo(file);
                     long s1 = f.Length;
@@ -62,15 +58,14 @@ namespace CopyTimer
                     //Reset the time
                     fileCopyTime.Reset();
                 }
-
+                //Stop Global Timer
                 totalCopyTime.Stop();
-                Console.WriteLine();
 
+                Console.WriteLine();
                 Console.WriteLine("Total elapsed time: " + totalCopyTime.Elapsed);
                 Console.WriteLine("Press any key to exit");
                 Console.ReadKey();
             }
-
         }
     }
 }
