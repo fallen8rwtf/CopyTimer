@@ -17,6 +17,7 @@ namespace CopyTimer
             }
             if (args.Length != 0)
             {
+            
                 Console.Clear();
                 Stopwatch fileCopyTime = new Stopwatch();
                 Stopwatch totalCopyTime = new Stopwatch();
@@ -48,18 +49,22 @@ namespace CopyTimer
 
                     //Copy
                     System.IO.File.Copy(file, args[1] + "\\" + fileName, true);
+                    File.AppendAllText("resulst.txt", fileCopyTime.Elapsed + " || " + s1 + " || " + fileName + "\n");
 
                     //Stop Times
                     fileCopyTime.Stop();
 
                     //Log the result
                     Console.WriteLine(fileCopyTime.Elapsed + " || " + s1 + " || " + fileName);
+                    
 
                     //Reset the time
                     fileCopyTime.Reset();
                 }
                 //Stop Global Timer
                 totalCopyTime.Stop();
+                File.AppendAllText("resulst.txt", "=================\n");
+
 
                 Console.WriteLine();
                 Console.WriteLine("Total elapsed time: " + totalCopyTime.Elapsed);
